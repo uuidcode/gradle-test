@@ -2,6 +2,7 @@ group 'com.github.uuidcode.gradle.test'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
@@ -19,3 +20,11 @@ task helloWorld {
         println 'Welcome to JCG Gradle Tutorial'
     }
 }
+
+task other(dependsOn: helloWorld) {
+    doLast {
+        println 'other'
+    }
+}
+
+mainClassName = 'com.github.uuidcode.gradle.test.Main'
